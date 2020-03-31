@@ -13,7 +13,7 @@ class nvm::install (
     command => "git clone ${nvm_repo} ${nvm_dir}",
     cwd     => $home,
     user    => $user,
-    unless  => "/usr/bin/test -d ${nvm_dir}/.git",
+    unless  => "/bin/test -d ${nvm_dir}/.git",
     require => $dependencies,
     notify  => Exec["git checkout ${nvm_repo} ${version}"],
   }
